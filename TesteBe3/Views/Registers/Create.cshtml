@@ -1,0 +1,130 @@
+﻿@model TesteBe3.Models.Register
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Cadastrar</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="FirstName" class="control-label"></label>
+                <input type="text" asp-for="FirstName" class="form-control" />
+                <span asp-validation-for="FirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LastName" class="control-label"></label>
+                <input type="text" asp-for="LastName" class="form-control" />
+                <span asp-validation-for="LastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Birthday" class="control-label"></label>
+                <input type="date" asp-for="Birthday" class="form-control" />
+                <span asp-validation-for="Birthday" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Gender" class="control-label"></label>
+                <select asp-for="Gender" class="form-control">
+                <option value="F">F</option>
+                <option value="M">M</option>
+                </select>
+                <span asp-validation-for="Gender" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CPF" class="control-label" ></label>
+                <input type="number" asp-for="CPF" class="form-control numberCpf" />
+                <span asp-validation-for="CPF" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RG" class="control-label"></label>
+                <input type="number" asp-for="RG" class="form-control numberRg" />
+                <span asp-validation-for="RG" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UF" class="control-label"></label>
+                <select asp-for="UF" class="form-control">
+                <option value="DF">DF</option>
+                <option value="GO">GO</option>
+                <option value="MT">MT</option>
+                <option value="MS">MS</option>
+                <option value="RS">RS</option>
+                <option value="SC">SC</option>
+                <option value="PR">PR</option>
+                <option value="SP">SP</option>
+                <option value="RJ">RJ</option>
+                <option value="ES">ES</option>
+                <option value="MG">MG</option>
+                <option value="BA">BA</option>
+                <option value="SE">SE</option>
+                <option value="AL">AL</option>
+                <option value="PE">PE</option>
+                <option value="PB">PB</option>
+                <option value="RN">RN</option>
+                <option value="CE">CE</option>
+                <option value="PI">PI</option>
+                <option value="MA">MA</option>
+                <option value="TO">TO</option>
+                <option value="AP">AP</option>
+                <option value="PA">PA</option>
+                <option value="RR">RR</option>
+                <option value="AM">AM</option>
+                <option value="AC">AC</option>
+                <option value="RO">RO</option>
+                </select>
+                <span asp-validation-for="UF" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input type="email" asp-for="Email" class="form-control" placeholder="name@email.com"/>
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PhoneNumber" class="control-label"></label>
+                <input type="number" asp-for="PhoneNumber" class="form-control" />
+                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PhoneNumber2" class="control-label"></label>
+                <input type="number" asp-for="PhoneNumber2" class="form-control" />
+                <span asp-validation-for="PhoneNumber2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HealthInsurance" class="control-label"></label>
+                <input asp-for="HealthInsurance" class="form-control" />
+                <span asp-validation-for="HealthInsurance" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NumberHealthInsurance" class="control-label"></label>
+                <input type="number" asp-for="NumberHealthInsurance" class="form-control" />
+                <span asp-validation-for="NumberHealthInsurance" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ValidityHealthInsurance" class="control-label"></label>
+                <input type="date" asp-for="ValidityHealthInsurance" class="form-control" />
+                <span asp-validation-for="ValidityHealthInsurance" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Criar" class="btn btn-primary m-2" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" class="btn btn-danger m-2">Voltar</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".numberCpf").mask("999.999.999-99");
+        $(".numberRg").mask("99.999.999-9");
+    }
+</script>
